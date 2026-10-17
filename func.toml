@@ -1,0 +1,9 @@
+[edge_compute]
+func_name = "pipecat-edge"
+
+# Secrets: telnyx-edge secrets add TELNYX_API_KEY <your-api-key>
+
+[build]
+# Temporary: selects a Python 3.11 builder with WebSocket support. Remove once
+# that is the Edge default.
+builder_image = "ghcr.io/team-telnyx/edge-compute-func-toolchain/s2i/python:sha-8e00c26"
