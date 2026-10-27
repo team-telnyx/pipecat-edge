@@ -29,7 +29,7 @@ The agent lives in `function/bot.py`.
 
 - A [Telnyx account](https://telnyx.com/sign-up) and an
   [API key](https://portal.telnyx.com/#/app/api-keys).
-- The [`telnyx-edge` CLI](https://github.com/team-telnyx/edge-compute#install).
+- The [`telnyx-edge` CLI](https://github.com/team-telnyx/edge-compute#-installation).
 - `curl` and [`jq`](https://jqlang.org).
 
 ## 1. Deploy the agent
@@ -70,7 +70,7 @@ Create a TeXML application that sends incoming calls to your function. Use
 the URL `ship` printed:
 
 ```bash
-FUNC_URL=https://my-pipecat-agent-1a2b3c4d-5.telnyxcompute.com
+FUNC_URL=https://my-pipecat-agent-1a2b3c4d-5.telnyxcompute.com  # replace with the URL ship printed
 
 APP_ID=$(curl -s https://api.telnyx.com/v2/texml_applications \
   -H "Authorization: Bearer $TELNYX_API_KEY" \
@@ -97,6 +97,7 @@ echo "Your agent's number: $NUMBER"
 Already have a number? Connect it instead of buying one:
 
 ```bash
+# Replace 15551234567 with your number. Keep the %2B; it's the "+".
 NUMBER_ID=$(curl -s "https://api.telnyx.com/v2/phone_numbers?filter%5Bphone_number%5D=%2B15551234567" \
   -H "Authorization: Bearer $TELNYX_API_KEY" \
   | jq -r '.data[0].id')
