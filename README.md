@@ -79,10 +79,10 @@ APP_ID=$(curl -s https://api.telnyx.com/v2/texml_applications \
   | jq -r .data.id)
 ```
 
-Buy a US number and connect it to that application:
+Buy a local US number and connect it to that application:
 
 ```bash
-NUMBER=$(curl -sg "https://api.telnyx.com/v2/available_phone_numbers?filter[country_code]=US&filter[features][]=voice&filter[limit]=1" \
+NUMBER=$(curl -sg "https://api.telnyx.com/v2/available_phone_numbers?filter[country_code]=US&filter[phone_number_type]=local&filter[features][]=voice&filter[limit]=1" \
   -H "Authorization: Bearer $TELNYX_API_KEY" \
   | jq -r '.data[0].phone_number')
 
